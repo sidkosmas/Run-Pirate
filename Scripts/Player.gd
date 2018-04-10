@@ -5,7 +5,6 @@ const GRAVITY = 20000
 
 var velocity = Vector2()
 var speed_y = 1000
-var animationPlayer
 var can_jump = false
 var released = false
 var y_direction = 1;
@@ -13,9 +12,15 @@ var y_direction = 1;
 var max_y = -500
 var min_y = 5900
 
+var animationPlayer
+var sprite
+
+var moving = false
+
 func _ready():
 	animationPlayer = get_node("AnimationPlayer")
-	animationPlayer.play("run")
+	sprite = get_node("Sprite")
+	animationPlayer.play("stand")
 	set_fixed_process(true)
 	set_process_input(true)
 	
@@ -27,6 +32,9 @@ func _fixed_process(delta):
 	if (Input.is_action_pressed("ui_accept")):
 		if(can_jump && released):
 			y_direction = y_direction * (-1);
+			if(y_direction == -1):
+				animationPlayer.play("flip_up")
+			else: animationPlayer.play("flip_down")
 			released = false
 	
 	speed_y += y_direction * (GRAVITY * delta)
@@ -37,6 +45,7 @@ func _fixed_process(delta):
 	
 	if get_pos().y > min_y || get_pos().y < max_y :
 		print("Player out of borders")
+		get_tree().reload_current_scene()
 	
 	if is_colliding():
 		var normal = get_collision_normal()
@@ -46,3 +55,13 @@ func _fixed_process(delta):
 		can_jump = true
 	else:
 		can_jump = false
+		
+	if !moving:
+		animationPlayer.play("run")
+		moving = true
+
+func mirror_sprite(var b):
+	sprite.set_flip_h(b)
+
+func flip_ended():
+	moving = false

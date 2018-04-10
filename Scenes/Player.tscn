@@ -1,13 +1,13 @@
-[gd_scene load_steps=15 format=1]
+[gd_scene load_steps=17 format=1]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
-[ext_resource path="res://Sprites/Jumping Boy Sprites/running/frame-1.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Jumping Boy Sprites/standing/frame-1.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/Jumping Boy Sprites/jump/jump_fall.png" type="Texture" id=3]
 [ext_resource path="res://Sprites/Jumping Boy Sprites/jump/jump_up.png" type="Texture" id=4]
-[ext_resource path="res://Sprites/Jumping Boy Sprites/running/frame-3.png" type="Texture" id=5]
-[ext_resource path="res://Sprites/Jumping Boy Sprites/running/frame-4.png" type="Texture" id=6]
-[ext_resource path="res://Sprites/Jumping Boy Sprites/running/frame-5.png" type="Texture" id=7]
-[ext_resource path="res://Sprites/Jumping Boy Sprites/standing/frame-1.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Jumping Boy Sprites/running/frame-1.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Jumping Boy Sprites/running/frame-3.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Jumping Boy Sprites/running/frame-4.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Jumping Boy Sprites/running/frame-5.png" type="Texture" id=8]
 [ext_resource path="res://Sprites/Jumping Boy Sprites/standing/frame-2.png" type="Texture" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -15,9 +15,81 @@
 custom_solver_bias = 0.0
 extents = Vector2( 152.202, 10 )
 
+[sub_resource type="Animation" id=7]
+
+resource/name = "flip_down"
+length = 0.35
+loop = false
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:transform/rot")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35 ),
+"transitions": FloatArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ -180.0, -175.0, -175.0, -100.0, -75.0, -50.0, -25.0, 0.0 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = {
+"times": FloatArray( 0.1 ),
+"transitions": FloatArray( 1 ),
+"values": [ {
+"args": [ false ],
+"method": "mirror_sprite"
+} ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/imported = false
+tracks/2/keys = {
+"times": FloatArray( 0.35 ),
+"transitions": FloatArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "flip_ended"
+} ]
+}
+
 [sub_resource type="Animation" id=2]
 
-resource/name = "jump_fall"
+resource/name = "flip_up"
+length = 0.35
+loop = false
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:transform/rot")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35 ),
+"transitions": FloatArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ -25.0, -50.0, -75.0, -100.0, -125.0, -150.0, -175.0, -180.0 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = {
+"times": FloatArray( 0.1, 0.35 ),
+"transitions": FloatArray( 1, 1 ),
+"values": [ {
+"args": [ true ],
+"method": "mirror_sprite"
+}, {
+"args": [  ],
+"method": "flip_ended"
+} ]
+}
+
+[sub_resource type="Animation" id=3]
+
 length = 0.01
 loop = true
 step = 0.1
@@ -32,9 +104,8 @@ tracks/0/keys = {
 "values": [ ExtResource( 3 ) ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=4]
 
-resource/name = "jump_up"
 length = 0.1
 loop = true
 step = 0.1
@@ -49,10 +120,9 @@ tracks/0/keys = {
 "values": [ ExtResource( 4 ) ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=5]
 
-resource/name = "run"
-length = 1.0
+length = 0.3
 loop = true
 step = 0.1
 tracks/0/type = "value"
@@ -60,13 +130,13 @@ tracks/0/path = NodePath("Sprite:texture")
 tracks/0/interp = 1
 tracks/0/imported = false
 tracks/0/keys = {
-"times": FloatArray( 0, 0.2, 0.4, 0.6, 0.8, 1 ),
+"times": FloatArray( 0, 0.1, 0.2, 0.3, 0.8, 1 ),
 "transitions": FloatArray( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ ExtResource( 2 ), ExtResource( 2 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 7 ) ]
+"values": [ ExtResource( 5 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 8 ) ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=6]
 
 length = 0.6
 loop = true
@@ -79,7 +149,7 @@ tracks/0/keys = {
 "times": FloatArray( 0, 0.3 ),
 "transitions": FloatArray( 1, 1 ),
 "update": 1,
-"values": [ ExtResource( 8 ), ExtResource( 9 ) ]
+"values": [ ExtResource( 2 ), ExtResource( 9 ) ]
 }
 
 [node name="Player" type="KinematicBody2D"]
@@ -102,10 +172,12 @@ texture = ExtResource( 2 )
 playback/process_mode = 1
 playback/default_blend_time = 0.0
 root/root = NodePath("..")
-anims/jump_fall = SubResource( 2 )
-anims/jump_up = SubResource( 3 )
-anims/run = SubResource( 4 )
-anims/stand = SubResource( 5 )
+anims/flip_down = SubResource( 7 )
+anims/flip_up = SubResource( 2 )
+anims/jump_fall = SubResource( 3 )
+anims/jump_up = SubResource( 4 )
+anims/run = SubResource( 5 )
+anims/stand = SubResource( 6 )
 playback/active = true
 playback/speed = 1.0
 blend_times = [  ]
