@@ -17,6 +17,8 @@ var sprite
 
 var moving = false
 
+var coins = 0
+
 func _ready():
 	animationPlayer = get_node("AnimationPlayer")
 	sprite = get_node("Sprite")
@@ -29,6 +31,8 @@ func _input(event):
 		released = true
 
 func _fixed_process(delta):	
+	print(coins)
+
 	if (Input.is_action_pressed("ui_accept")):
 		if(can_jump && released):
 			y_direction = y_direction * (-1);

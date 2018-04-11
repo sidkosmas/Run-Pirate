@@ -2,5 +2,9 @@ https://opengameart.org/content/running-and-jumping-kid-sprite-sheets
 https://opengameart.org/content/crates-0
 https://opengameart.org/content/old-paper
 https://opengameart.org/content/2d-boat
-https://opengameart.org/content/coins-set-01
+https://opengameart.org/content/coin-animation
 https://opengameart.org/content/island-background-2d
+https://opengameart.org/content/cartoon-mobile-rounded-icon-buttons
+
+https://freesound.org/people/yummie/sounds/410574/
+https://freesound.org/people/CGEffex/sounds/93678/

@@ -37,5 +37,5 @@ extents = Vector2( 249.069, 248.759 )
 2/occluder_offset = Vector2( 256, 252.5 )
 2/navigation_offset = Vector2( 256, 252.5 )
 2/shape_offset = Vector2( 0, 0 )
-2/shapes = [ null ]
+2/shapes = [  ]
 

@@ -1,13 +1,25 @@
-[gd_scene load_steps=5 format=1]
+[gd_scene load_steps=9 format=1]
 
 [ext_resource path="res://Sprites/Background/background-2.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Camera.gd" type="Script" id=2]
 [ext_resource path="res://Tilesets/crate_tileset.tres" type="TileSet" id=3]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Sounds/game-background-music-loop.smp" type="Sample" id=5]
+[ext_resource path="res://Scripts/SamplePlayer.gd" type="Script" id=6]
+[ext_resource path="res://Scenes/Coin.tscn" type="PackedScene" id=7]
+
+[sub_resource type="SampleLibrary" id=1]
+
+samples/game-background-music-loop = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 5 )
+}
 
 [node name="Node" type="Node"]
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="Background" type="Sprite" parent="."]
 
 transform/pos = Vector2( 4706.34, 2875.55 )
 transform/scale = Vector2( 5.15334, 4.98426 )
@@ -15,7 +27,7 @@ texture = ExtResource( 1 )
 script/script = ExtResource( 2 )
 target = "../Player"
 
-[node name="TileMap" type="TileMap" parent="."]
+[node name="CeilFloor" type="TileMap" parent="."]
 
 mode = 0
 tile_set = ExtResource( 3 )
@@ -31,11 +43,29 @@ collision/bounce = 0.0
 collision/layers = 1
 collision/mask = 1
 occluder/light_mask = 1
-tile_data = IntArray( 65554, 0, 65555, 0, 65556, 0, 65557, 0, 65558, 0, 65559, 0, 65560, 0, 65561, 0, 65562, 0, 65563, 0, 131107, 0, 131108, 0, 131109, 0, 131112, 0, 131113, 0, 131114, 0, 131115, 0, 131116, 0, 131117, 0, 131118, 0, 131119, 0, 131120, 0, 131121, 0, 131122, 0, 131123, 0, 131124, 0, 131127, 0, 131128, 0, 131129, 0, 131130, 0, 131131, 0, 131132, 0, 131133, 0, 131134, 0, 131135, 0, 131136, 0, 131137, 0, 131138, 0, 131139, 0, 131140, 0, 131141, 0, 131142, 0, 131143, 0, 131144, 0, 131145, 0, 131146, 0, 131147, 0, 131148, 0, 131149, 0, 131150, 0, 131151, 0, 131152, 0, 131153, 0, 131154, 0, 131155, 0, 131156, 0, 131157, 0, 131158, 0, 131159, 0, 196619, 1, 196620, 1, 196621, 1, 196652, 1, 196660, 0, 196661, 0, 196662, 0, 196663, 0, 196695, 0, 262155, 1, 262156, 1, 262157, 1, 262167, 1, 262231, 0, 327690, 0, 327691, 0, 327692, 0, 327693, 0, 327694, 0, 327703, 1, 327767, 0, 393225, 0, 393226, 0, 393230, 0, 393231, 0, 393239, 1, 393284, 0, 393285, 0, 393286, 0, 393287, 0, 393288, 0, 393289, 0, 393303, 0, 458774, 0, 458775, 0, 458776, 0, 458777, 0, 458778, 0, 458779, 0, 458788, 1, 458789, 1, 458790, 1, 458796, 0, 458803, 0, 458804, 0, 458816, 0, 458817, 0, 458818, 0, 458819, 0, 458820, 0, 458825, 0, 458826, 0, 458827, 0, 458828, 0, 458829, 0, 458830, 0, 458831, 0, 458832, 0, 458833, 0, 458834, 0, 458835, 0, 458836, 0, 458837, 0, 458838, 0, 458839, 0, 524308, 0, 524309, 0, 524310, 0, 524319, 0, 524320, 0, 524321, 0, 524322, 0, 524323, 0, 524324, 0, 524325, 0, 524326, 0, 524332, 0, 589824, 0, 589825, 0, 589826, 0, 589827, 0, 589828, 0, 589829, 0, 589830, 0, 589831, 0, 589832, 0, 589833, 0, 589834, 0, 589835, 0, 589836, 0, 589837, 0, 589838, 0, 589839, 0, 589840, 0, 589841, 0, 589842, 0, 589843, 0, 589844, 0 )
+tile_data = IntArray( 65554, 0, 65555, 0, 65556, 0, 65557, 0, 65558, 0, 65559, 0, 65560, 0, 65561, 0, 65562, 0, 65563, 0, 131107, 0, 131108, 0, 131109, 0, 131112, 0, 131113, 0, 131114, 0, 131115, 0, 131116, 0, 131117, 0, 131118, 0, 131119, 0, 131120, 0, 131121, 0, 131122, 0, 131123, 0, 131124, 0, 131127, 0, 131128, 0, 131129, 0, 131130, 0, 131131, 0, 131132, 0, 131133, 0, 131134, 0, 131135, 0, 131136, 0, 131137, 0, 131138, 0, 131139, 0, 131140, 0, 131141, 0, 131142, 0, 131143, 0, 131144, 0, 131145, 0, 131146, 0, 131147, 0, 131148, 0, 131149, 0, 131150, 0, 131151, 0, 131152, 0, 131153, 0, 131158, 0, 196619, 1, 196620, 1, 196621, 1, 196652, 1, 196660, 0, 196661, 0, 196662, 0, 196663, 0, 196697, 0, 196698, 0, 196705, 0, 262155, 1, 262156, 1, 262157, 1, 262167, 1, 262241, 0, 327690, 0, 327691, 0, 327692, 0, 327693, 0, 327694, 0, 327703, 1, 327777, 0, 393225, 0, 393226, 0, 393230, 0, 393231, 0, 393239, 1, 393284, 0, 393285, 0, 393286, 0, 393287, 0, 393288, 0, 393289, 0, 393313, 0, 458774, 0, 458775, 0, 458776, 0, 458777, 0, 458778, 0, 458779, 0, 458788, 1, 458789, 1, 458790, 1, 458796, 0, 458803, 0, 458804, 0, 458816, 0, 458817, 0, 458818, 0, 458819, 0, 458820, 0, 458825, 0, 458826, 0, 458827, 0, 458828, 0, 458829, 0, 458830, 0, 458831, 0, 458832, 0, 458833, 0, 458837, 0, 458838, 0, 458839, 0, 458844, 0, 458845, 0, 458846, 0, 458847, 0, 458848, 0, 458849, 0, 524308, 0, 524309, 0, 524310, 0, 524319, 0, 524320, 0, 524321, 0, 524322, 0, 524323, 0, 524324, 0, 524325, 0, 524326, 0, 524332, 0, 589824, 0, 589825, 0, 589826, 0, 589827, 0, 589828, 0, 589829, 0, 589830, 0, 589831, 0, 589832, 0, 589833, 0, 589834, 0, 589835, 0, 589836, 0, 589837, 0, 589838, 0, 589839, 0, 589840, 0, 589841, 0, 589842, 0, 589843, 0, 589844, 0, 720984, 0, 720985, 0, 720986, 0, 720993, 0, 720994, 0, 720995, 0, 720996, 0, 720997, 0 )
 
 [node name="Player" parent="." instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 725.671, 3087.6 )
+
+[node name="InFront" type="TileMap" parent="."]
+
+mode = 0
+tile_set = ExtResource( 3 )
+cell/size = Vector2( 512, 505 )
+cell/quadrant_size = 16
+cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+cell/half_offset = 2
+cell/tile_origin = 0
+cell/y_sort = false
+collision/use_kinematic = false
+collision/friction = 1.0
+collision/bounce = 0.0
+collision/layers = 1
+collision/mask = 1
+occluder/light_mask = 1
+tile_data = IntArray( 196669, 2, 262205, 2, 458821, 1, 458823, 1, 458824, 1, 524355, 0, 524356, 0, 524357, 1, 524359, 1, 524360, 1, 524361, 0, 589891, 0, 589892, 0, 589893, 1, 589894, 1, 589895, 1, 589896, 1, 589897, 0, 655420, 0, 655421, 0, 655422, 0, 655423, 0, 655424, 0, 655427, 0, 655428, 0, 655429, 0, 655430, 0, 655431, 0, 655432, 0, 655433, 0 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
@@ -59,22 +89,36 @@ drag_margin/bottom = 0.2
 script/script = ExtResource( 2 )
 target = "../Player"
 
-[node name="TileMap 2" type="TileMap" parent="."]
+[node name="SamplePlayer" type="SamplePlayer" parent="."]
 
-mode = 0
-tile_set = ExtResource( 3 )
-cell/size = Vector2( 512, 505 )
-cell/quadrant_size = 16
-cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
-cell/half_offset = 2
-cell/tile_origin = 0
-cell/y_sort = false
-collision/use_kinematic = false
-collision/friction = 1.0
-collision/bounce = 0.0
-collision/layers = 1
-collision/mask = 1
-occluder/light_mask = 1
-tile_data = IntArray( 196669, 2, 262205, 2, 458821, 1, 458823, 1, 458824, 1, 524355, 0, 524356, 0, 524357, 1, 524359, 1, 524360, 1, 524361, 0, 589891, 0, 589892, 0, 589893, 1, 589894, 1, 589895, 1, 589896, 1, 589897, 0, 655420, 0, 655421, 0, 655422, 0, 655423, 0, 655424, 0, 655427, 0, 655428, 0, 655429, 0, 655430, 0, 655431, 0, 655432, 0, 655433, 0 )
+config/polyphony = 1
+config/samples = SubResource( 1 )
+default/volume_db = 0.0
+default/pitch_scale = 1.0
+default/pan = 0.0
+default/depth = 0.0
+default/height = 0.0
+default/filter/type = 0
+default/filter/cutoff = 5000.0
+default/filter/resonance = 1.0
+default/filter/gain = 1.0
+default/reverb_room = 2
+default/reverb_send = 0.0
+default/chorus_send = 0.0
+script/script = ExtResource( 6 )
+
+[node name="Coins" type="Node2D" parent="."]
+
+editor/display_folded = true
+
+[node name="Coin" parent="Coins" instance=ExtResource( 7 )]
+
+editor/display_folded = true
+transform/pos = Vector2( 3840, 4301 )
+
+[node name="Coin1" parent="Coins" instance=ExtResource( 7 )]
+
+editor/display_folded = true
+transform/pos = Vector2( 4864, 4301 )
 
 
