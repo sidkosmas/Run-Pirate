@@ -30,9 +30,7 @@ func _input(event):
 	if event.is_action_released("ui_accept"):
 		released = true
 
-func _fixed_process(delta):	
-	print(coins)
-
+func _fixed_process(delta):
 	if (Input.is_action_pressed("ui_accept")):
 		if(can_jump && released):
 			y_direction = y_direction * (-1);
