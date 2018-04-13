@@ -13,9 +13,9 @@
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 152.202, 10 )
+extents = Vector2( 152.202, 9.38679 )
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=2]
 
 resource/name = "flip_down"
 length = 0.35
@@ -56,9 +56,8 @@ tracks/2/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=3]
 
-resource/name = "flip_up"
 length = 0.35
 loop = false
 step = 0.05
@@ -88,7 +87,7 @@ tracks/1/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=4]
 
 length = 0.01
 loop = true
@@ -104,7 +103,7 @@ tracks/0/keys = {
 "values": [ ExtResource( 3 ) ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=5]
 
 length = 0.1
 loop = true
@@ -120,7 +119,7 @@ tracks/0/keys = {
 "values": [ ExtResource( 4 ) ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=6]
 
 length = 0.3
 loop = true
@@ -136,7 +135,7 @@ tracks/0/keys = {
 "values": [ ExtResource( 5 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 8 ) ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=7]
 
 length = 0.6
 loop = true
@@ -156,7 +155,7 @@ tracks/0/keys = {
 
 input/pickable = false
 shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Matrix32( 1, 0, 0, 32.6676, 4.20471, 18.09 )
+shapes/0/transform = Matrix32( 1, 0, 0, 33.5, 9.23, -0.2 )
 shapes/0/trigger = false
 collision/layers = 1
 collision/mask = 1
@@ -172,12 +171,12 @@ texture = ExtResource( 2 )
 playback/process_mode = 1
 playback/default_blend_time = 0.0
 root/root = NodePath("..")
-anims/flip_down = SubResource( 7 )
-anims/flip_up = SubResource( 2 )
-anims/jump_fall = SubResource( 3 )
-anims/jump_up = SubResource( 4 )
-anims/run = SubResource( 5 )
-anims/stand = SubResource( 6 )
+anims/flip_down = SubResource( 2 )
+anims/flip_up = SubResource( 3 )
+anims/jump_fall = SubResource( 4 )
+anims/jump_up = SubResource( 5 )
+anims/run = SubResource( 6 )
+anims/stand = SubResource( 7 )
 playback/active = true
 playback/speed = 1.0
 blend_times = [  ]
@@ -185,8 +184,8 @@ autoplay = ""
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
-transform/pos = Vector2( 4.20471, 18.09 )
-transform/scale = Vector2( 1, 32.6676 )
+transform/pos = Vector2( 9.23, -0.2 )
+transform/scale = Vector2( 1, 33.5 )
 shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0

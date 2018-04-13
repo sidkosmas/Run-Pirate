@@ -20,6 +20,6 @@ func _fixed_process(delta):
 	elif player.coins == 3:
 		get_node("CoinThree").show()
 	
-	set_pos(Vector2(round(player.get_pos().x) - 3000, round(camera2d.get_pos().y) - 2300))
+	set_pos(Vector2(round(player.get_pos().x) - 2500, round(camera2d.get_pos().y) - 2300))
 	pass
 	
