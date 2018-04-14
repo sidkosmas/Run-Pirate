@@ -34,6 +34,7 @@ func _fixed_process(delta):
 	if (Input.is_action_pressed("ui_accept")):
 		if(can_jump && released):
 			y_direction = y_direction * (-1);
+			animationPlayer.stop(true)
 			if(y_direction == -1):
 				animationPlayer.play("flip_up")
 			else: animationPlayer.play("flip_down")
@@ -57,7 +58,7 @@ func _fixed_process(delta):
 		can_jump = true
 	else:
 		can_jump = false
-		
+	
 	if !moving:
 		animationPlayer.play("run")
 		moving = true
