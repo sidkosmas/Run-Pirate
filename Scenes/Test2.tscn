@@ -163,6 +163,7 @@ target = "../Player"
 [node name="Area2D" type="Area2D" parent="."]
 
 process/pause_mode = 2
+editor/display_folded = true
 transform/pos = Vector2( 768, 1265 )
 transform/scale = Vector2( 1.5, 1.5 )
 input/pickable = true
