@@ -8,5 +8,5 @@ func _ready():
 	pass
 
 func _fixed_process(delta):			
-	set_pos(Vector2(round(camera2d.get_pos().x - 6000), round(camera2d.get_pos().y - 3000)))
+	set_pos(Vector2(round(camera2d.get_pos().x), round(camera2d.get_pos().y)))
 	pass
