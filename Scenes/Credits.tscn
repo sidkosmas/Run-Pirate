@@ -7,7 +7,7 @@
 [ext_resource path="res://Sprites/Crates/dark_crate_five.png" type="Texture" id=5]
 [ext_resource path="res://Font/pirate.fnt" type="BitmapFont" id=6]
 [ext_resource path="res://Sprites/Other Boy/Idle/frame-2.png" type="Texture" id=7]
-[ext_resource path="res://Scripts/BackButton.gd" type="Script" id=8]
+[ext_resource path="res://Scripts/Credits/BackButton.gd" type="Script" id=8]
 [ext_resource path="res://Sprites/Buttons/unpressed/yellow/back_30.png" type="Texture" id=9]
 [ext_resource path="res://Sprites/Buttons/pressed/yellow/back_1_30.png" type="Texture" id=10]
 
@@ -36,8 +36,6 @@ tracks/0/keys = {
 [node name="Node" type="Node"]
 
 [node name="Background" type="Node2D" parent="."]
-
-editor/display_folded = true
 
 [node name="OldPaper" type="Sprite" parent="Background"]
 
@@ -98,7 +96,6 @@ drag_margin/bottom = 0.2
 
 [node name="Kosmas" type="Node2D" parent="."]
 
-editor/display_folded = true
 transform/pos = Vector2( 1236, 809 )
 transform/scale = Vector2( 0.2, 0.2 )
 
@@ -114,7 +111,6 @@ texture = ExtResource( 5 )
 
 [node name="Control" type="Control" parent="Kosmas"]
 
-editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -136,6 +132,7 @@ margin/top = -700.0
 margin/right = -133.0
 margin/bottom = -603.0
 custom_fonts/font = ExtResource( 6 )
+custom_colors/font_color = Color( 0.498039, 0.0484314, 0.0484467, 1 )
 text = "Kosmas Sidiropoulos"
 percent_visible = 1.0
 lines_skipped = 0

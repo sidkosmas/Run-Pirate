@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=1]
 
-[ext_resource path="res://Scripts/Dead.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/DeadScreen/Dead.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Old Paper/old_paper_paper_1_1_800x500.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/Background/undersea.png" type="Texture" id=3]
 [ext_resource path="res://Sprites/Jumping Boy Sprites/got hit/frame.png" type="Texture" id=4]

@@ -3,13 +3,13 @@
 [ext_resource path="res://Sprites/Old Paper/old_paper_paper_1_1_800x500.png" type="Texture" id=1]
 [ext_resource path="res://Sprites/Boats/red.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/Crates/mixed_crate_one.png" type="Texture" id=3]
-[ext_resource path="res://Scripts/PlayButton.gd" type="Script" id=4]
+[ext_resource path="res://Scripts/StartingMenu/PlayButton.gd" type="Script" id=4]
 [ext_resource path="res://Sprites/Menu Buttons/medium size/normal/play_normal.png" type="Texture" id=5]
 [ext_resource path="res://Sprites/Menu Buttons/medium size/pressed/play_normal.png" type="Texture" id=6]
-[ext_resource path="res://Scripts/QuitButton.gd" type="Script" id=7]
+[ext_resource path="res://Scripts/StartingMenu/QuitButton.gd" type="Script" id=7]
 [ext_resource path="res://Sprites/Menu Buttons/medium size/normal/quit_normal.png" type="Texture" id=8]
 [ext_resource path="res://Sprites/Menu Buttons/medium size/pressed/quit_normal.png" type="Texture" id=9]
-[ext_resource path="res://Scripts/CreditsButton.gd" type="Script" id=10]
+[ext_resource path="res://Scripts/StartingMenu/CreditsButton.gd" type="Script" id=10]
 [ext_resource path="res://Sprites/Menu Buttons/small size/normal/credits_normal.png" type="Texture" id=11]
 [ext_resource path="res://Sprites/Menu Buttons/small size/pressed/credits_normal.png" type="Texture" id=12]
 
@@ -235,6 +235,7 @@ autostart = false
 
 [node name="Credits" type="Area2D" parent="."]
 
+editor/display_folded = true
 transform/pos = Vector2( 1890.67, 952 )
 input/pickable = true
 shapes/0/shape = SubResource( 5 )
