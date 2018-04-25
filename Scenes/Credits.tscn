@@ -37,6 +37,8 @@ tracks/0/keys = {
 
 [node name="Background" type="Node2D" parent="."]
 
+editor/display_folded = true
+
 [node name="OldPaper" type="Sprite" parent="Background"]
 
 transform/pos = Vector2( 1536, 759 )
@@ -96,6 +98,7 @@ drag_margin/bottom = 0.2
 
 [node name="Kosmas" type="Node2D" parent="."]
 
+editor/display_folded = true
 transform/pos = Vector2( 1236, 809 )
 transform/scale = Vector2( 0.2, 0.2 )
 
