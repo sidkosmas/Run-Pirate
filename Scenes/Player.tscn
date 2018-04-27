@@ -1,14 +1,15 @@
-[gd_scene load_steps=17 format=1]
+[gd_scene load_steps=18 format=1]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
-[ext_resource path="res://Sprites/Jumping Boy Sprites/standing/frame-1.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Jumping Boy Sprites/standing/standing1.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/Jumping Boy Sprites/jump/jump_fall.png" type="Texture" id=3]
 [ext_resource path="res://Sprites/Jumping Boy Sprites/jump/jump_up.png" type="Texture" id=4]
 [ext_resource path="res://Sprites/Jumping Boy Sprites/running/frame-1.png" type="Texture" id=5]
 [ext_resource path="res://Sprites/Jumping Boy Sprites/running/frame-3.png" type="Texture" id=6]
 [ext_resource path="res://Sprites/Jumping Boy Sprites/running/frame-4.png" type="Texture" id=7]
 [ext_resource path="res://Sprites/Jumping Boy Sprites/running/frame-5.png" type="Texture" id=8]
-[ext_resource path="res://Sprites/Jumping Boy Sprites/standing/frame-2.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Jumping Boy Sprites/standing/frame-1.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Jumping Boy Sprites/standing/frame-2.png" type="Texture" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -148,7 +149,7 @@ tracks/0/keys = {
 "times": FloatArray( 0, 0.3 ),
 "transitions": FloatArray( 1, 1 ),
 "update": 1,
-"values": [ ExtResource( 2 ), ExtResource( 9 ) ]
+"values": [ ExtResource( 9 ), ExtResource( 10 ) ]
 }
 
 [node name="Player" type="KinematicBody2D"]
