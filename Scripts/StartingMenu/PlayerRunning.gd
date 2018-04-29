@@ -5,8 +5,8 @@ const GRAVITY = 20000
 
 var velocity = Vector2()
 var speed_y = 1000
-var y_direction = 1;
-var x_direction = 1;
+export var y_direction = 1;
+export var x_direction = 1;
 
 var animationPlayer
 var movement_remainder
@@ -20,8 +20,7 @@ func _ready():
 	animationPlayer.play("stand")
 	set_fixed_process(true)
 
-func _fixed_process(delta):
-	
+func _fixed_process(delta):	
 	speed_y += y_direction * (GRAVITY * delta)
 	velocity.x = (x_direction * MAX_SPEED) * delta
 	velocity.y = speed_y * delta	

@@ -1,0 +1,130 @@
+[gd_scene load_steps=14 format=1]
+
+[ext_resource path="res://Scripts/DeadScreen/Dead.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Old Paper/old_paper_paper_1_1_800x500.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Background/undersea.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Jumping Boy Sprites/standing/standing1.png" type="Texture" id=4]
+[ext_resource path="res://Scripts/DeadScreen/HomeButton.gd" type="Script" id=5]
+[ext_resource path="res://Sprites/Buttons/bubble/home-frame.png" type="Texture" id=6]
+[ext_resource path="res://Scripts/DeadScreen/RestartButton.gd" type="Script" id=7]
+[ext_resource path="res://Sprites/Buttons/bubble/restart-frame.png" type="Texture" id=8]
+[ext_resource path="res://Scripts/DeadScreen/StageSelButton.gd" type="Script" id=9]
+[ext_resource path="res://Sprites/Buttons/bubble/stage-selection-frame.png" type="Texture" id=10]
+
+[sub_resource type="CircleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 10.0
+
+[sub_resource type="CircleShape2D" id=2]
+
+custom_solver_bias = 0.0
+radius = 10.0
+
+[sub_resource type="CircleShape2D" id=3]
+
+custom_solver_bias = 0.0
+radius = 10.0
+
+[node name="PauseMenu" type="Node2D"]
+
+script/script = ExtResource( 1 )
+
+[node name="OldPaper" type="Sprite" parent="."]
+
+transform/scale = Vector2( 0.85, 1.03 )
+texture = ExtResource( 2 )
+
+[node name="Undersea" type="Sprite" parent="."]
+
+texture = ExtResource( 3 )
+
+[node name="Player" type="Sprite" parent="."]
+
+transform/pos = Vector2( 160, -40 )
+transform/scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 4 )
+flip_h = true
+
+[node name="HomeButton" type="Area2D" parent="."]
+
+editor/display_folded = true
+transform/pos = Vector2( -220, -100 )
+transform/scale = Vector2( 0.5, 0.5 )
+input/pickable = true
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 10, 0, 0, 10, -0.6, 5.1 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+script/script = ExtResource( 5 )
+
+[node name="Home" type="Sprite" parent="HomeButton"]
+
+texture = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HomeButton"]
+
+transform/pos = Vector2( -0.6, 5.1 )
+transform/scale = Vector2( 10, 10 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="RestartButton" type="Area2D" parent="."]
+
+editor/display_folded = true
+transform/pos = Vector2( -60, -100 )
+transform/scale = Vector2( 0.5, 0.5 )
+input/pickable = true
+shapes/0/shape = SubResource( 2 )
+shapes/0/transform = Matrix32( 10, 0, 0, 10, 1, 6.7 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+script/script = ExtResource( 7 )
+
+[node name="Restart" type="Sprite" parent="RestartButton"]
+
+texture = ExtResource( 8 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RestartButton"]
+
+transform/pos = Vector2( 1, 6.7 )
+transform/scale = Vector2( 10, 10 )
+shape = SubResource( 2 )
+trigger = false
+_update_shape_index = 0
+
+[node name="StageSelButton" type="Area2D" parent="."]
+
+editor/display_folded = true
+transform/pos = Vector2( -140, 0 )
+transform/scale = Vector2( 0.5, 0.5 )
+input/pickable = true
+shapes/0/shape = SubResource( 3 )
+shapes/0/transform = Matrix32( 10, 0, 0, 10, -1.6, 6.5 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+script/script = ExtResource( 9 )
+
+[node name="StageSel" type="Sprite" parent="StageSelButton"]
+
+texture = ExtResource( 10 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StageSelButton"]
+
+transform/pos = Vector2( -1.6, 6.5 )
+transform/scale = Vector2( 10, 10 )
+shape = SubResource( 3 )
+trigger = false
+_update_shape_index = 0
+
+

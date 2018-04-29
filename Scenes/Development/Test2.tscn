@@ -1,0 +1,219 @@
+[gd_scene load_steps=16 format=1]
+
+[ext_resource path="res://Sprites/Background/background-2.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/Camera.gd" type="Script" id=2]
+[ext_resource path="res://Sprites/Boats/red.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Enemy.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Tilesets/crate_tileset.tres" type="TileSet" id=6]
+[ext_resource path="res://Scenes/Coin.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scripts/Collected.gd" type="Script" id=8]
+[ext_resource path="res://Sprites/Old Paper/old_paper_paper_1_1_800x500.png" type="Texture" id=9]
+[ext_resource path="res://Scripts/PauseButton.gd" type="Script" id=10]
+[ext_resource path="res://Sprites/Buttons/unpressed/yellow/pause.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/Buttons/pressed/yellow/pause.png" type="Texture" id=12]
+[ext_resource path="res://Scenes/Dead.tscn" type="PackedScene" id=13]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 207.92, 133.829 )
+
+[sub_resource type="Animation" id=2]
+
+resource/name = "button_press"
+length = 0.2
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("PauseButton:texture")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.1 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 11 ), ExtResource( 12 ) ]
+}
+
+[node name="Node" type="Node"]
+
+[node name="Background" type="Sprite" parent="."]
+
+transform/pos = Vector2( 4706.34, 2875.55 )
+transform/scale = Vector2( 5.15334, 4.98426 )
+texture = ExtResource( 1 )
+script/script = ExtResource( 2 )
+
+[node name="Ship" type="Sprite" parent="."]
+
+transform/pos = Vector2( 60928, 4301 )
+transform/scale = Vector2( 4, 4 )
+texture = ExtResource( 3 )
+
+[node name="Player" parent="." instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 725, 3087 )
+
+[node name="Enemy" parent="." instance=ExtResource( 5 )]
+
+visibility/opacity = 1.0
+transform/pos = Vector2( 9500, 4153.41 )
+
+[node name="CeilFloor" type="TileMap" parent="."]
+
+mode = 0
+tile_set = ExtResource( 6 )
+cell/size = Vector2( 512, 505 )
+cell/quadrant_size = 16
+cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+cell/half_offset = 2
+cell/tile_origin = 0
+cell/y_sort = false
+collision/use_kinematic = false
+collision/friction = 1.0
+collision/bounce = 0.0
+collision/layers = 1
+collision/mask = 1
+occluder/light_mask = 1
+tile_data = IntArray( 65554, 0, 65555, 0, 65556, 0, 65557, 0, 65558, 0, 65559, 0, 65560, 0, 65561, 0, 65562, 0, 65563, 0, 131107, 0, 131108, 0, 131109, 0, 131112, 0, 131113, 0, 131114, 0, 131115, 0, 131116, 0, 131117, 0, 131118, 0, 131119, 0, 131120, 0, 131121, 0, 131122, 0, 131123, 0, 131124, 0, 131127, 0, 131128, 0, 131129, 0, 131130, 0, 131131, 0, 131132, 0, 131133, 0, 131134, 0, 131135, 0, 131136, 0, 131137, 0, 131138, 0, 131139, 0, 131140, 0, 131141, 0, 131142, 0, 131143, 0, 131144, 0, 131145, 0, 131146, 0, 131147, 0, 131148, 0, 131149, 0, 131150, 0, 131151, 0, 131152, 0, 131153, 0, 131158, 0, 196619, 1, 196620, 1, 196621, 1, 196652, 1, 196660, 0, 196661, 0, 196662, 0, 196663, 0, 196697, 0, 196698, 0, 196705, 0, 262155, 1, 262156, 1, 262157, 1, 262167, 1, 262241, 0, 327690, 0, 327691, 0, 327692, 0, 327693, 0, 327694, 0, 327703, 1, 327777, 0, 393225, 0, 393226, 0, 393230, 0, 393231, 0, 393239, 1, 393285, 0, 393286, 0, 393287, 0, 393289, 0, 393313, 0, 458774, 0, 458775, 0, 458776, 0, 458777, 0, 458778, 0, 458779, 0, 458788, 1, 458789, 1, 458790, 1, 458796, 0, 458803, 0, 458804, 0, 458816, 0, 458817, 0, 458818, 0, 458819, 0, 458825, 0, 458826, 0, 458827, 0, 458828, 0, 458829, 0, 458830, 0, 458831, 0, 458832, 0, 458833, 0, 458836, 0, 458837, 0, 458838, 0, 458839, 0, 458844, 0, 458845, 0, 458846, 0, 458847, 0, 458848, 0, 458849, 0, 524308, 0, 524309, 0, 524310, 0, 524319, 0, 524320, 0, 524321, 0, 524322, 0, 524323, 0, 524324, 0, 524325, 0, 524326, 0, 524332, 0, 524355, 0, 524361, 0, 589824, 0, 589825, 0, 589826, 0, 589827, 0, 589828, 0, 589829, 0, 589830, 0, 589831, 0, 589832, 0, 589833, 0, 589834, 0, 589835, 0, 589836, 0, 589837, 0, 589838, 0, 589839, 0, 589840, 0, 589841, 0, 589842, 0, 589843, 0, 589844, 0, 589891, 0, 589892, 0, 589893, 0, 589894, 0, 589895, 0, 589896, 0, 589897, 0, 655420, 0, 655421, 0, 655422, 0, 655423, 0, 655424, 0, 655427, 0, 655428, 0, 655429, 0, 655430, 0, 655431, 0, 655432, 0, 655433, 0, 720984, 0, 720985, 0, 720986, 0, 720993, 0, 720994, 0, 720995, 0, 720996, 0, 720997, 0 )
+
+[node name="InFront" type="TileMap" parent="."]
+
+mode = 0
+tile_set = ExtResource( 6 )
+cell/size = Vector2( 512, 505 )
+cell/quadrant_size = 16
+cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+cell/half_offset = 2
+cell/tile_origin = 0
+cell/y_sort = false
+collision/use_kinematic = false
+collision/friction = 1.0
+collision/bounce = 0.0
+collision/layers = 1
+collision/mask = 1
+occluder/light_mask = 1
+tile_data = IntArray( 393284, 2, 393288, 2, 458820, 2, 458822, 2, 458823, 2, 458824, 2, 524356, 2, 524358, 2, 524359, 2, 524360, 2, 720998, 0, 720999, 0, 721000, 0, 721001, 0, 721002, 0, 721003, 0, 721004, 0, 721005, 0, 721006, 0, 721007, 0, 721008, 0, 721009, 0, 721010, 0, 721011, 0, 721012, 0, 721013, 0, 721014, 0, 721015, 0, 721016, 0, 721017, 0 )
+
+[node name="Coins" type="Node2D" parent="."]
+
+editor/display_folded = true
+
+[node name="Coin1" parent="Coins" instance=ExtResource( 7 )]
+
+editor/display_folded = true
+transform/pos = Vector2( 15360, 2530 )
+
+[node name="Coin2" parent="Coins" instance=ExtResource( 7 )]
+
+editor/display_folded = true
+transform/pos = Vector2( 4864, 4048 )
+
+[node name="Coin3" parent="Coins" instance=ExtResource( 7 )]
+
+editor/display_folded = true
+transform/pos = Vector2( 35584, 3795 )
+
+[node name="Collected" type="Node2D" parent="."]
+
+editor/display_folded = true
+visibility/opacity = 0.55
+transform/pos = Vector2( 1536, 506 )
+script/script = ExtResource( 8 )
+
+[node name="OldPaper" type="Sprite" parent="Collected"]
+
+transform/pos = Vector2( -512, 0 )
+transform/scale = Vector2( 2.1, 1 )
+texture = ExtResource( 9 )
+
+[node name="CoinOne" parent="Collected" instance=ExtResource( 7 )]
+
+editor/display_folded = true
+transform/pos = Vector2( -1024, 0 )
+script/script = null
+
+[node name="CoinTwo" parent="Collected" instance=ExtResource( 7 )]
+
+editor/display_folded = true
+transform/pos = Vector2( -512, 0 )
+script/script = null
+
+[node name="CoinThree" parent="Collected" instance=ExtResource( 7 )]
+
+script/script = null
+
+[node name="PauseButton" type="Area2D" parent="."]
+
+process/pause_mode = 2
+editor/display_folded = true
+transform/pos = Vector2( 768, 1265 )
+transform/scale = Vector2( 1.5, 1.5 )
+input/pickable = true
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+script/script = ExtResource( 10 )
+
+[node name="PauseButton" type="Sprite" parent="PauseButton"]
+
+texture = ExtResource( 11 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PauseButton"]
+
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Timer" type="Timer" parent="PauseButton"]
+
+process_mode = 1
+wait_time = 0.2
+one_shot = false
+autostart = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PauseButton"]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/button_press = SubResource( 2 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
+
+[node name="Dead" parent="." instance=ExtResource( 13 )]
+
+visibility/visible = false
+transform/scale = Vector2( 9, 9 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+transform/pos = Vector2( 4783.85, 2811.13 )
+anchor_mode = 1
+rotating = false
+current = true
+zoom = Vector2( 10, 10 )
+limit/left = -10000000
+limit/top = -10000000
+limit/right = 10000000
+limit/bottom = 10000000
+drag_margin/h_enabled = false
+drag_margin/v_enabled = false
+smoothing/enable = false
+smoothing/speed = 5.0
+drag_margin/left = 0.2
+drag_margin/top = 0.2
+drag_margin/right = 0.2
+drag_margin/bottom = 0.2
+script/script = ExtResource( 2 )
+
+[connection signal="timeout" from="PauseButton/Timer" to="PauseButton" method="_on_Timer_timeout"]
+
+

@@ -6,7 +6,7 @@
 [ext_resource path="res://Sprites/Jumping Boy Sprites/standing/standing1.png" type="Texture" id=4]
 [ext_resource path="res://Sprites/Crates/dark_crate_five.png" type="Texture" id=5]
 [ext_resource path="res://Font/pirate.fnt" type="BitmapFont" id=6]
-[ext_resource path="res://Sprites/Other Boy/Idle/frame-2.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Other Boy/Idle/idle.png" type="Texture" id=7]
 [ext_resource path="res://Scripts/Credits/BackButton.gd" type="Script" id=8]
 [ext_resource path="res://Sprites/Buttons/unpressed/yellow/back_30.png" type="Texture" id=9]
 [ext_resource path="res://Sprites/Buttons/pressed/yellow/back_1_30.png" type="Texture" id=10]

@@ -10,4 +10,5 @@ func _input_event(viewport, event, shape_idx):
 	and event.button_index == BUTTON_LEFT \
 	and event.pressed:
 		print("Down Level")
-		pass
+		get_tree().get_root().get_node("/root/PlayerData").current_stage = 0
+		get_tree().change_scene("res://Scenes/TheMountain.tscn")
